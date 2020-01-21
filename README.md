@@ -24,3 +24,7 @@ sudo avrdude -p m8 -c avrispmkII -U lfuse:r:lfusefile.hex:i
 sudo avrdude -p m8 -c avrispmkII -U hfuse:r:hfusefile.hex:i
 sudo avrdude -p m8 -c avrispmkII -U eeprom:r:eeprom.hex:i
 ```
+
+## Ardunio project/HACK
+
+To make the TG work with other spectrum analyzers you have to change the IF inside the TG. The way to do this is to reprogram the ATMega8A to set up the ADF4350 to create the correct IF. I have added a arduino project in the BG7TBL subfolder that does exactly this, you should be able to modify it for other spectrum analyzers.
