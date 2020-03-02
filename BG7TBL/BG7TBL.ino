@@ -25,7 +25,9 @@ void setup() {
     digitalWrite(LED, !digitalRead(LED));
   }
 
-  //Setup
+  //This is the setup sequence given by the original firmware suitable
+  //for Anritsu spectrum analyzers. As this is about a HP system I
+  //disabled it using the if (false) statement once I'd got it working.
   if (false) {
     //Reg 5
     //12345678901234567890123456789012
@@ -98,14 +100,18 @@ void setup() {
   }
   
 
-  //Setup for the HP systems
+  //This is the configuration required for the HP 8591A system. These
+  //bytes were generated using the Analog Devices evaluation software (see
+  //https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/EVAL-ADF4350.html)
+  //using most of the settings listed above remained the same except
+  //for the actual frequency.
   if (true) {
-  shiftWord(0x00580005);
-  shiftWord(0x009506FC);
-  shiftWord(0x0000896B);
-  shiftWord(0x04004E42);
-  shiftWord(0x080080C9);
-  shiftWord(0x00D40038);
+    shiftWord(0x00580005);
+    shiftWord(0x009506FC);
+    shiftWord(0x0000896B);
+    shiftWord(0x04004E42);
+    shiftWord(0x080080C9);
+    shiftWord(0x00D40038);
   }
 }
 
